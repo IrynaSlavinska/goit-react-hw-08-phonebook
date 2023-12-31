@@ -1,11 +1,7 @@
-import { HomeContainer, Title } from './HomePage.styled';
+import { Title } from './HomePage.styled';
 
 const HomePage = () => {
-  return (
-    <HomeContainer>
-      <Title>Hello my friend</Title>
-    </HomeContainer>
-  );
+  return <Title>Hello my friend</Title>;
 };
 
 export default HomePage;

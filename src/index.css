@@ -44,31 +44,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #ffffc5;
+  background: #e9af3d;
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: #ffffff;
   border-radius: 20px;
   border: 2px solid #a1c487;
-}
-
-.container {
-  width: 1400px;
-  margin: 0 auto;
-  padding: 10px;
-
-  font-size: 32px;
-
-  margin-bottom: 20px;
-
-  background-color: #bfa89e;
-  border-radius: 8px;
-
-  text-align: center;
-  display: flex;
-  justify-content: center;
-
-  margin-bottom: 4px;
-  margin-top: 30px;
 }
