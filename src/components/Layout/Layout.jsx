@@ -1,31 +1,32 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import { Header, Navigation, NavItem, Container } from './Layout.styled';
 
 const Layout = () => {
   return (
-    <>
-      <header>
-        <ul>
-          <li>
+    <Container>
+      <Header>
+        <Navigation>
+          <NavItem>
             <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
+          </NavItem>
+          <NavItem>
             <NavLink to="register">Register</NavLink>
-          </li>
-          <li>
+          </NavItem>
+          <NavItem>
             <NavLink to="login">Log In</NavLink>
-          </li>
-          <li>
+          </NavItem>
+          <NavItem>
             <NavLink to="contacts">Contacts</NavLink>
-          </li>
-        </ul>
-      </header>
+          </NavItem>
+        </Navigation>
+      </Header>
       <main>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
       </main>
-    </>
+    </Container>
   );
 };
 
