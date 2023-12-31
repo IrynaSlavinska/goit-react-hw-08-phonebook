@@ -8,7 +8,7 @@ export const HomeContainer = styled.div`
   background-size: cover;
   margin: 0 auto;
   max-width: 1400px;
-  height: 89vh;
+  height: 80vh;
 
   display: flex;
   justify-content: center;

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   width: 1400px;
@@ -15,12 +16,23 @@ export const Navigation = styled.ul`
   gap: 50px;
 `;
 
-export const NavItem = styled.li`
+export const NavItem = styled.li``;
+
+export const StyledLink = styled(NavLink)`
   font-size: 20px;
+  color: #000000;
   background-color: #bfa89e;
   padding: 8px;
   border-radius: 4px;
-  &: active {
+
+  &.active {
+    color: #ebf5ee;
     background-color: #8b786d;
+    padding: 8px;
+    border-radius: 4px;
   }
+`;
+
+export const Main = styled.main`
+  padding: 32px;
 `;

@@ -1,6 +1,13 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import { Header, Navigation, NavItem, Container } from './Layout.styled';
+import {
+  Container,
+  Header,
+  Navigation,
+  NavItem,
+  StyledLink,
+  Main,
+} from './Layout.styled';
 
 const Layout = () => {
   return (
@@ -8,24 +15,25 @@ const Layout = () => {
       <Header>
         <Navigation>
           <NavItem>
-            <NavLink to="/">Home</NavLink>
+            <StyledLink to="/">Home</StyledLink>
           </NavItem>
           <NavItem>
-            <NavLink to="register">Register</NavLink>
+            <StyledLink to="register">Register</StyledLink>
           </NavItem>
           <NavItem>
-            <NavLink to="login">Log In</NavLink>
+            <StyledLink to="login">Log In</StyledLink>
           </NavItem>
           <NavItem>
-            <NavLink to="contacts">Contacts</NavLink>
+            <StyledLink to="contacts">Contacts</StyledLink>
           </NavItem>
         </Navigation>
       </Header>
-      <main>
-        <Suspense fallback={<div>Loading...</div>}>
+
+      <Main>
+        <Suspense fallback={null}>
           <Outlet />
         </Suspense>
-      </main>
+      </Main>
     </Container>
   );
 };

@@ -27,7 +27,7 @@ ol {
 }
 a {
   text-decoration: none;
-  color: #ebf5ee;
+  color: #000000;
 }
 
 body {
@@ -68,5 +68,5 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-bottom: 4px;
 }
