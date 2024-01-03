@@ -22,7 +22,7 @@ export const ContactForm = () => {
         <Input type="tel" name="number" required placeholder="Enter number" />
       </Label>
 
-      <Group>Group</Group>
+      {/* <Group>Group</Group>
       <RadioContainer>
         <RaioDiv>
           Family
@@ -43,7 +43,7 @@ export const ContactForm = () => {
           Others
           <RadioInput type="radio" name="group" value="others" checked />
         </RaioDiv>
-      </RadioContainer>
+      </RadioContainer> */}
 
       <SubmitButton type="submit">Add contact</SubmitButton>
     </Form>
