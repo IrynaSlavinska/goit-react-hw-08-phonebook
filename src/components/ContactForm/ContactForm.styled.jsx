@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Form = styled.form`
   width: 400px;
-  background-color: #78a1bb;
+  background-color: #7ad9f7;
   padding: 12px;
   border-radius: 8px;
 `;
@@ -12,22 +12,23 @@ export const Label = styled.label`
   flex-direction: column;
   margin-bottom: 16px;
   color: #000000;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 12px;
 `;
 
 export const Input = styled.input`
-  padding: 4px;
   font-size: 18px;
+  padding: 4px;
+  margin-top: 4px;
   border-radius: 4px;
   border: 2px solid transparent;
   outline: transparent;
 
-  &:focus {
+  &: focus {
     border-color: #e9af3d;
   }
 
-  &:hover {
+  &: hover {
     border-color: #e9af3d;
   }
 `;
