@@ -13,14 +13,18 @@ import {
 } from '../../redux/contacts/contactsOperations';
 
 import { MdDelete } from 'react-icons/md';
+import { IoIosContacts } from 'react-icons/io';
+import { IconContext } from 'react-icons';
+
 import {
   List,
   Item,
   Container,
-  Name,
-  Number,
+  ContactData,
   DeleteContactBtn,
 } from './ContactsList.styled';
+
+import { HourglassLoader } from 'components/Loader/Loader';
 
 export const ContactsList = () => {
   const contacts = useSelector(selectContacts);
@@ -49,28 +53,34 @@ export const ContactsList = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
+      {isLoading ? (
+        <HourglassLoader />
+      ) : (
+        <List>
+          {visibleContacts.map(({ id, name, number }) => (
+            <Item key={id}>
+              <IconContext.Provider value={{ color: '#283044', size: 40 }}>
+                <IoIosContacts />
+              </IconContext.Provider>
+              <Container>
+                <ContactData>{name}</ContactData>
+                <ContactData>{number}</ContactData>
+              </Container>
+              <DeleteContactBtn
+                type="button"
+                onClick={() => {
+                  dispatch(deleteContactAction(id));
+                }}
+              >
+                <IconContext.Provider value={{ color: '#283044', size: 40 }}>
+                  <MdDelete />
+                </IconContext.Provider>
+              </DeleteContactBtn>
+            </Item>
+          ))}
+        </List>
+      )}
       {error && <p>Something went wrong!. Try again later</p>}
-      <List>
-        {visibleContacts.map(({ id, name, number, avatar }) => (
-          <Item key={id}>
-            {/* <RiContactsFill /> */}
-            <img src={avatar} alt="avatar" width="52" />
-            <Container>
-              <Name>{name}</Name>
-              <Number>{number}</Number>
-            </Container>
-            <DeleteContactBtn
-              type="button"
-              onClick={() => {
-                dispatch(deleteContactAction(id));
-              }}
-            >
-              <MdDelete />
-            </DeleteContactBtn>
-          </Item>
-        ))}
-      </List>
     </>
   );
 };

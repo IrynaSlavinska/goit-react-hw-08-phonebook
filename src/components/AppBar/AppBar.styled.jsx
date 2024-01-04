@@ -5,6 +5,7 @@ export const Header = styled.header`
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 16px;
 `;
 
 export const NavigationMenu = styled.ul`

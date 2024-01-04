@@ -40,7 +40,7 @@ body {
   background: #283044;
 }
 body::-webkit-scrollbar {
-  width: 2px;
+  width: 8px;
 }
 
 body::-webkit-scrollbar-track {
