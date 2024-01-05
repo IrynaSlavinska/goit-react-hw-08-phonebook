@@ -40,7 +40,6 @@ export const ContactsList = () => {
 
   const getFilteredContacts = () => {
     if (filter.filter === '') return;
-
     const normilezedFilter = filter.toLowerCase().trim();
     const visibleContacts = contacts.filter(contact =>
       contact.name.toLowerCase().includes(normilezedFilter)
@@ -53,9 +52,8 @@ export const ContactsList = () => {
 
   return (
     <>
-      {isLoading ? (
-        <HourglassLoader />
-      ) : (
+      {error && <p>Something went wrong!. Try again later</p>}
+      {visibleContacts.length > 0 && (
         <List>
           {visibleContacts.map(({ id, name, number }) => (
             <Item key={id}>
@@ -80,7 +78,7 @@ export const ContactsList = () => {
           ))}
         </List>
       )}
-      {error && <p>Something went wrong!. Try again later</p>}
+      {isLoading && <HourglassLoader />}
     </>
   );
 };

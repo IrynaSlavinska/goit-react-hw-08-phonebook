@@ -1,47 +1,40 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import Notiflix from 'notiflix';
 
-axios.defaults.baseURL = 'https://658c671c859b3491d3f606a0.mockapi.io';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const getAllContactsAction = createAsyncThunk(
   'contacts/getAllContacts',
-
-  async (_, thunkApi) => {
+  async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
       return response.data;
     } catch (error) {
-      Notiflix.Notify.info('Something went wrong! Try again');
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const addContactAction = createAsyncThunk(
   'contacts/addContactPost',
-
-  async (info, thunkApi) => {
+  async (body, thunkAPI) => {
     try {
-      const response = await axios.post('/contacts', info);
+      const response = await axios.post('/contacts', body);
       return response.data;
     } catch (error) {
-      Notiflix.Notify.info('Something went wrong! Try again later');
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const deleteContactAction = createAsyncThunk(
   'contacts/deleteContact',
-
-  async (contactId, thunkApi) => {
+  async (contactId, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${contactId}`);
       return response.data;
     } catch (error) {
-      Notiflix.Notify.info('Something went wrong! Try again later');
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
