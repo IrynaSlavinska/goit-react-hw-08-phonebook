@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const ErrorContainer = styled.div`
+export const NotAuthContainer = styled.div`
   text-align: center;
   background-color: #1dacd6;
   padding: 20px;
   border-radius: 4px;
 `;
 
-export const ErrorTitle = styled.h1`
+export const Title = styled.h1`
   font-size: 60px;
 `;
 

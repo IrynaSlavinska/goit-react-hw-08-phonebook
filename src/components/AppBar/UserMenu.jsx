@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import authSelectors from '../../redux/auth/authSelectors';
+import { authSelectors } from '../../redux/auth/authSelectors';
 import operations from '../../redux/auth/authOperations';
 
 import { IconContext } from 'react-icons';
