@@ -6,7 +6,7 @@ import { Title } from './HomePage.styled';
 const HomePage = () => {
   const name = useSelector(authSelectors.selectUserName);
 
-  return <Title>Wellcome to Our Application {name}</Title>;
+  return <Title>Wellcome to Phonebook, {name ? name : 'My Friend'}</Title>;
 };
 
 export default HomePage;

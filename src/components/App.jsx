@@ -4,9 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 
 import Layout from './Layout/Layout';
 import { PrivateRoute } from '../routes/PrivateRoute';
-// import { RestrictedRoute } from './RestrictedRoute';
+import { PublicRoute } from '../routes/PublicRoute';
 import { useAuth } from '../hooks/useAuth';
 import operations from '../redux/auth/authOperations';
+
+import { HourglassLoader } from './Loader/Loader';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
@@ -24,13 +26,20 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <HourglassLoader />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
+
+        <Route
+          path="register"
+          element={<PublicRoute component={<RegisterPage />} />}
+        />
+        <Route
+          path="login"
+          element={<PublicRoute component={<LoginPage />} />}
+        />
         <Route path="unauthorized" element={<NotAuthPage />} />
         <Route
           path="/contacts"
