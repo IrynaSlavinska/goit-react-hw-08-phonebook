@@ -49,6 +49,7 @@ export const Group = styled.p`
 export const RadioContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 16px;
 `;
 
 export const RaioDiv = styled.div`
@@ -81,5 +82,5 @@ export const RaioDiv = styled.div`
 `;
 
 export const RadioInput = styled.input`
-  display: none;
+  margin-left: 6px;
 `;

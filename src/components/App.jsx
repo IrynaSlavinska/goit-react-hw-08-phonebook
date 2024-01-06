@@ -8,8 +8,6 @@ import { PublicRoute } from '../routes/PublicRoute';
 import { useAuth } from '../hooks/useAuth';
 import operations from '../redux/auth/authOperations';
 
-import { HourglassLoader } from './Loader/Loader';
-
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
@@ -25,35 +23,35 @@ const App = () => {
     dispatch(operations.refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <HourglassLoader />
-  ) : (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
+  return (
+    !isRefreshing && (
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
 
-        <Route
-          path="register"
-          element={<PublicRoute component={<RegisterPage />} />}
-        />
-        <Route
-          path="login"
-          element={<PublicRoute component={<LoginPage />} />}
-        />
-        <Route path="unauthorized" element={<NotAuthPage />} />
-        <Route
-          path="/contacts"
-          element={
-            <PrivateRoute
-              redirectTo="/unauthorized"
-              component={<ContactsPage />}
-            />
-          }
-        />
+          <Route
+            path="register"
+            element={<PublicRoute component={<RegisterPage />} />}
+          />
+          <Route
+            path="login"
+            element={<PublicRoute component={<LoginPage />} />}
+          />
+          <Route path="unauthorized" element={<NotAuthPage />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute
+                redirectTo="/unauthorized"
+                component={<ContactsPage />}
+              />
+            }
+          />
 
-        <Route path="*" element={<NotFound to={'/'} />}></Route>
-      </Route>
-    </Routes>
+          <Route path="*" element={<NotFound to={'/'} />}></Route>
+        </Route>
+      </Routes>
+    )
   );
 };
 

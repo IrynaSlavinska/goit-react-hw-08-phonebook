@@ -10,28 +10,28 @@ import {
   Label,
   Input,
   SubmitButton,
-  // Group,
-  // RadioContainer,
-  // RaioDiv,
-  // RadioInput,
+  Group,
+  RadioContainer,
+  RadioInput,
 } from './ContactForm.styled';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [group, setGroup] = useState('others');
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
+    const form = e.currentTarget;
+    dispatch(addContactAction({ name, number, group }));
     const isExist = contacts.some(contact => contact.name === name);
     if (isExist) {
       Notiflix.Notify.warning(`${name} is already in your phonebook`);
       return;
     }
-    dispatch(addContactAction({ name, number }));
-    setName('');
-    setNumber('');
+    form.reset();
   };
 
   const handleChange = e => {
@@ -42,6 +42,9 @@ export const ContactForm = () => {
         break;
       case 'number':
         setNumber(value);
+        break;
+      case 'group':
+        setGroup(value);
         break;
       default:
         break;
@@ -72,28 +75,52 @@ export const ContactForm = () => {
         />
       </Label>
 
-      {/* <Group>Group</Group>
+      <Group>Group</Group>
       <RadioContainer>
-        <RaioDiv>
+        <label>
           Family
-          <RadioInput type="radio" name="group" value="family" />
-        </RaioDiv>
+          <RadioInput
+            type="radio"
+            name="group"
+            value="family"
+            onChange={handleChange}
+            checked={group === 'family'}
+          />
+        </label>
 
-        <RaioDiv>
+        <label>
           Friends
-          <RadioInput type="radio" name="group" value="friends" />
-        </RaioDiv>
+          <RadioInput
+            type="radio"
+            name="group"
+            value="friends"
+            onChange={handleChange}
+            checked={group === 'friends'}
+          />
+        </label>
 
-        <RaioDiv>
+        <label>
           Work
-          <RadioInput type="radio" name="group" value="work" />
-        </RaioDiv>
+          <RadioInput
+            type="radio"
+            name="group"
+            value="work"
+            onChange={handleChange}
+            checked={group === 'work'}
+          />
+        </label>
 
-        <RaioDiv>
+        <label>
           Others
-          <RadioInput type="radio" name="group" value="others" checked />
-        </RaioDiv>
-      </RadioContainer> */}
+          <RadioInput
+            type="radio"
+            name="group"
+            value="others"
+            onChange={handleChange}
+            checked={group === 'others'}
+          />
+        </label>
+      </RadioContainer>
 
       <SubmitButton type="submit">Add contact</SubmitButton>
     </Form>

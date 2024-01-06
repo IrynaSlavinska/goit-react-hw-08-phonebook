@@ -55,7 +55,7 @@ export const ContactsList = () => {
       {error && <p>Something went wrong!. Try again later</p>}
       {visibleContacts.length > 0 && (
         <List>
-          {visibleContacts.map(({ id, name, number }) => (
+          {visibleContacts.map(({ id, name, number, group }) => (
             <Item key={id}>
               <IconContext.Provider value={{ color: '#283044', size: 40 }}>
                 <IoIosContacts />
@@ -63,6 +63,7 @@ export const ContactsList = () => {
               <Container>
                 <ContactData>{name}</ContactData>
                 <ContactData>{number}</ContactData>
+                <ContactData>{group}</ContactData>
               </Container>
               <DeleteContactBtn
                 type="button"
