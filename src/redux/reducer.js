@@ -4,7 +4,6 @@ import storage from 'redux-persist/lib/storage';
 import { contactsReducer } from './contacts/contactsSlice';
 import { filterReducer } from './filter/filterSlice';
 import { authReducer } from './auth/authSlice';
-import { sortReducer } from './group/groupSlice.js';
 
 const authPersistConfig = {
   key: 'auth',
@@ -15,6 +14,5 @@ const authPersistConfig = {
 export const reducer = {
   contacts: contactsReducer,
   filter: filterReducer,
-  sort: sortReducer,
   auth: persistReducer(authPersistConfig, authReducer),
 };

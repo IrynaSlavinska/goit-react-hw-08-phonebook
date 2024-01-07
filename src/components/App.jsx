@@ -13,7 +13,6 @@ const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 const NotFound = lazy(() => import('pages/NotFound/NotFound'));
-const NotAuthPage = lazy(() => import('pages/NotAuthPage/NotAuthPage'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -37,14 +36,10 @@ const App = () => {
             path="login"
             element={<PublicRoute component={<LoginPage />} />}
           />
-          <Route path="unauthorized" element={<NotAuthPage />} />
           <Route
             path="/contacts"
             element={
-              <PrivateRoute
-                redirectTo="/unauthorized"
-                component={<ContactsPage />}
-              />
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
 

@@ -13,7 +13,6 @@ export const Label = styled.label`
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-bottom: 10px;
 `;
 
 export const Input = styled.input`
@@ -29,17 +28,4 @@ export const Input = styled.input`
   &: hover {
     border-color: #e9af3d;
   }
-`;
-
-export const SortContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 6px;
-`;
-
-export const SortButton = styled.button`
-  padding: 8px 12px;
-  font-size: 16px;
-  color: #000000;
-  background-color: #e9af3d;
 `;
