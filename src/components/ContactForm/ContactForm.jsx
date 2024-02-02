@@ -75,53 +75,6 @@ export const ContactForm = () => {
         />
       </Label>
 
-      <Group>Group</Group>
-      <RadioContainer>
-        <label>
-          Family
-          <RadioInput
-            type="radio"
-            name="group"
-            value="family"
-            onChange={handleChange}
-            checked={group === 'family'}
-          />
-        </label>
-
-        <label>
-          Friends
-          <RadioInput
-            type="radio"
-            name="group"
-            value="friends"
-            onChange={handleChange}
-            checked={group === 'friends'}
-          />
-        </label>
-
-        <label>
-          Work
-          <RadioInput
-            type="radio"
-            name="group"
-            value="work"
-            onChange={handleChange}
-            checked={group === 'work'}
-          />
-        </label>
-
-        <label>
-          Others
-          <RadioInput
-            type="radio"
-            name="group"
-            value="others"
-            onChange={handleChange}
-            checked={group === 'others'}
-          />
-        </label>
-      </RadioContainer>
-
       <SubmitButton type="submit">Add contact</SubmitButton>
     </Form>
   );
