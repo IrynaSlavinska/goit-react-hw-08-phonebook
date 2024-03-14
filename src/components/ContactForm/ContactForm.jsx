@@ -5,15 +5,7 @@ import Notiflix from 'notiflix';
 import { selectContacts } from '../../redux/selectors';
 import { addContactAction } from '../../redux/contacts/contactsOperations';
 
-import {
-  Form,
-  Label,
-  Input,
-  SubmitButton,
-  Group,
-  RadioContainer,
-  RadioInput,
-} from './ContactForm.styled';
+import { Form, Label, Input, SubmitButton } from './ContactForm.styled';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
